@@ -14,7 +14,6 @@ select *, (select customer_id from orders o where od.order_id = o.id) as cust_id
 # var. 1
 select *, (select shipper_id from orders o where od.order_id = o.id and shipper_id = 3) as sh_id from order_details od;
 # var. 2
-select * from tmpT1 where sh_id = 3;
 with tmpT1 as (
 select *, (select shipper_id from orders o where od.order_id = o.id) as sh_id from order_details od 
 )
@@ -55,4 +54,5 @@ DELIMITER ;
 
 select fDivide(10, 2);
 select fDivide(10, 0);
+select fDivide(quantity, 2) from order_details;
 
